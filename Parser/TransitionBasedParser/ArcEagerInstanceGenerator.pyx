@@ -6,12 +6,25 @@ from DependencyParser.Universal.UniversalDependencyTreeBankWord cimport Universa
 cdef class ArcEagerInstanceGenerator(InstanceGenerator):
 
     cpdef bint suitable(self, UniversalDependencyTreeBankWord word):
+        """
+        Checks if the given word has a valid relation.
+        :param word: The UniversalDependencyTreeBankWord to check.
+        :return: true if the relation is valid, false otherwise.
+        """
         return word.getRelation() is not None
 
     cpdef Instance generate(self,
                             State state,
                             int windowSize,
                             str command):
+        """
+        Generates an Instance object based on the provided state, window size, and command.
+        The Instance is populated with attributes derived from the words in the state.
+        :param state: The state used to generate the instance.
+        :param windowSize: The size of the window used to extract words from the state.
+        :param command: The command associated with the instance.
+        :return: The generated Instance object.
+        """
         instance = Instance(command)
         attributes = []
         for i in range(windowSize):
