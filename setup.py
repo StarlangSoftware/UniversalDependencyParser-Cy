@@ -8,8 +8,8 @@ from Cython.Build import cythonize
 setup(
     ext_modules=cythonize(["Parser/TransitionBasedParser/*.pyx"],
                           compiler_directives={'language_level': "3"}),
-    name='NlpToolkit-UniversalDependencyParser-Cy',
-    version='1.0.0',
+    name='nlptoolkit-universaldependencyparser-cy',
+    version='1.0.1',
     packages=['Parser', 'Parser.TransitionBasedParser'],
     package_data={'Parser.TransitionBasedParser': ['*.pxd', '*.pyx', '*.c', '*.py']},
     url='https://github.com/StarlangSoftware/UniversalDependencyParser-Cy',
